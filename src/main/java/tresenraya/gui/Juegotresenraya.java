@@ -1,7 +1,12 @@
 package tresenraya.gui;
 
 import java.awt.Color;
+import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+import tresenraya.dao.JuegoenrayaI;
+import tresenraya.dao.tresenraya;
+import tresenraya.modelo.Modelotresenraya;
 
 /**
  *
@@ -21,9 +26,11 @@ public class Juegotresenraya extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.white);
         this.setIconImage(new ImageIcon("logo.png").getImage());
         this.tablero = new char[3][3];
+        listarResultados();
         iniciarJuego();
         //clearButtons();
         terminarJuego();
+        
     }
 
     /**
@@ -137,13 +144,13 @@ public class Juegotresenraya extends javax.swing.JFrame {
 
         Tablero.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "nombre_partida", "nombre_jugador1", "nombre_jugador2", "ganador", "punto", "estado"
+                "id_resultado", "nombre_partida", "nombre_jugador1", "nombre_jugador2", "ganador", "punto", "estado"
             }
         ));
         jScrollPane1.setViewportView(Tablero);
@@ -411,35 +418,35 @@ public class Juegotresenraya extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton0_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton0_0ActionPerformed
-    jugar.tiradaJugador(Boton0_0, 0, 0, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);    // TODO add your handling code here:
+        jugar.tiradaJugador(Boton0_0, 0, 0, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);    // TODO add your handling code here:
     }//GEN-LAST:event_Boton0_0ActionPerformed
 
     private void Boton0_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton0_1ActionPerformed
-jugar.tiradaJugador(Boton0_1, 0, 1, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
+        jugar.tiradaJugador(Boton0_1, 0, 1, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
     }//GEN-LAST:event_Boton0_1ActionPerformed
 
     private void Boton0_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton0_2ActionPerformed
-jugar.tiradaJugador(Boton0_2, 0, 2, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
+        jugar.tiradaJugador(Boton0_2, 0, 2, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
     }//GEN-LAST:event_Boton0_2ActionPerformed
 
     private void Boton1_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton1_0ActionPerformed
-jugar.tiradaJugador(Boton1_0, 1, 0, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
+        jugar.tiradaJugador(Boton1_0, 1, 0, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
     }//GEN-LAST:event_Boton1_0ActionPerformed
 
     private void Boton1_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton1_1ActionPerformed
-jugar.tiradaJugador(Boton1_1, 1, 1, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
+        jugar.tiradaJugador(Boton1_1, 1, 1, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
     }//GEN-LAST:event_Boton1_1ActionPerformed
 
     private void Boton1_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton1_2ActionPerformed
-jugar.tiradaJugador(Boton1_2, 1, 2, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
+        jugar.tiradaJugador(Boton1_2, 1, 2, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
     }//GEN-LAST:event_Boton1_2ActionPerformed
 
     private void Boton2_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton2_0ActionPerformed
-jugar.tiradaJugador(Boton2_0, 2, 0, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
+        jugar.tiradaJugador(Boton2_0, 2, 0, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
     }//GEN-LAST:event_Boton2_0ActionPerformed
 
     private void Boton2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton2_1ActionPerformed
-jugar.tiradaJugador(Boton2_1, 2, 1, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
+        jugar.tiradaJugador(Boton2_1, 2, 1, tablero, XpartidasGanadas, OpartidasGanadas, PanelTablero);        // TODO add your handling code here:
     }//GEN-LAST:event_Boton2_1ActionPerformed
 
     private void Boton2_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton2_2ActionPerformed
@@ -447,11 +454,13 @@ jugar.tiradaJugador(Boton2_1, 2, 1, tablero, XpartidasGanadas, OpartidasGanadas,
     }//GEN-LAST:event_Boton2_2ActionPerformed
 
     private void Boton_iniciar_partidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_iniciar_partidaActionPerformed
-jugar.iniciarPartida(PanelTablero, true, tablero);        // TODO add your handling code here:
+        jugar.iniciarPartida(PanelTablero, true, tablero);    
+        listarResultados();
+// TODO add your handling code here:
     }//GEN-LAST:event_Boton_iniciar_partidaActionPerformed
 
     private void Boton_anular_partidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_anular_partidaActionPerformed
-jugar.teminarPartida(PanelTablero, true, tablero);     // TODO add your handling code here:
+        jugar.teminarPartida(PanelTablero, false, tablero);     // TODO add your handling code here:
     }//GEN-LAST:event_Boton_anular_partidaActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -481,7 +490,7 @@ jugar.teminarPartida(PanelTablero, true, tablero);     // TODO add your handling
             java.util.logging.Logger.getLogger(Juegotresenraya.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -489,18 +498,22 @@ jugar.teminarPartida(PanelTablero, true, tablero);     // TODO add your handling
             }
         });
     }
+
     // Inicia el juego
-    public void iniciarJuego(){
-        jugar.iniciarPartida(PanelTablero,true,tablero);
+    public void iniciarJuego() {
+        jugar.iniciarPartida(PanelTablero, false, tablero);
     }
-    public void terminarJuego(){
-        jugar.teminarPartida(PanelTablero,true, tablero);
+
+    public void terminarJuego() {
+        jugar.teminarPartida(PanelTablero, true, tablero);
     }
+
     // Limpia los botones
-    public void clearButtons(){
-        jugar.habilitarTrablero(PanelTablero, true);
+    public void clearButtons() {
+        jugar.habilitarTrablero(PanelTablero, false);
     }
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton0_0;
     private javax.swing.JButton Boton0_1;
@@ -536,4 +549,27 @@ jugar.teminarPartida(PanelTablero, true, tablero);     // TODO add your handling
     private javax.swing.JPanel tablerodejugadoryresultado;
     private javax.swing.JLabel tresenraya;
     // End of variables declaration//GEN-END:variables
+
+    DefaultTableModel model;
+
+    public void listarResultados() {
+        JuegoenrayaI dao = new tresenraya();
+        List<Modelotresenraya> lista = dao.listarResultado();
+        model = (DefaultTableModel) Tablero.getModel();
+        //System.out.println("hh:"+lista.size());
+        model.setNumRows(0);
+        Object[] ob = new Object[7];
+        for (int i = 0; i < lista.size(); i++) {
+            int x = -1;
+            ob[++x] = lista.get(i).getIdresultado();
+            ob[++x] = lista.get(i).getNombre_partida ();
+            ob[++x] = lista.get(i).getNombre_jugador1();
+            ob[++x] = lista.get(i).getNombre_jugador2();
+            ob[++x] = lista.get(i).getGanador();
+            ob[++x] = lista.get(i).getPunto();
+            ob[++x] = lista.get(i).getEstado();
+            model.addRow(ob);
+        }
+    }
+
 }

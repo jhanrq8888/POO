@@ -46,7 +46,7 @@ public class ConnS {
             synchronized (ConnS.class) {
                 if (instance == null) {
                     instance = new ConnS();
-                    System.out.println("Se instancio ConnS");
+                    //System.out.println("Se instancio ConnS");
                 }
             }
         }
@@ -62,7 +62,7 @@ public class ConnS {
                         //String dbUrl="jdbc:sqlite:data/db_ventas.db?foreign_keys=on;";
 
                         String dbUrl= "jdbc:sqlite:" + util.getFileExterno("data",
-                                        "result3enraya").getAbsolutePath() + "?foreign_keys=on;";
+                                        "result3enraya.db").getAbsolutePath() + "?foreign_keys=on;";
                         //String dbUrl="jdbc:sqlite:" + getFile("admision_db.db").getAbsolutePath() + "?foreign_keys=on;";
 
                         connection = DriverManager.getConnection(dbUrl);
@@ -76,8 +76,8 @@ public class ConnS {
         return connection;
     }
     
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         ConnS con=getInstance();
         con.getConnection();
-    }*/
+    }
 }

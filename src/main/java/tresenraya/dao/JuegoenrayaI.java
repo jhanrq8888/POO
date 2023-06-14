@@ -14,5 +14,8 @@ import java.util.List;
 public interface JuegoenrayaI {
     public List listarResultado(); 
    public int createResultado(Modelotresenraya re);
+   public int updateresultado(Modelotresenraya re);
+   
+   
     
 }

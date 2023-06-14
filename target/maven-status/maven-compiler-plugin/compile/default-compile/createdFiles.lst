@@ -8,9 +8,10 @@ tresenraya\gui\Juegotresenraya$6.class
 tresenraya\conexion\ConnS.class
 tresenraya\util\UtilsX.class
 tresenraya\gui\Juegotresenraya$12.class
-tresenraya\dao\Juego3.class
+tresenraya\gui\Juego3.class
 tresenraya\gui\Juegotresenraya$2.class
 tresenraya\dao\JuegoenrayaI.class
+tresenraya\dao\tresenraya.class
 tresenraya\gui\Juegotresenraya$4.class
 tresenraya\gui\Juegotresenraya.class
 tresenraya\modelo\ComboBoxOption.class
